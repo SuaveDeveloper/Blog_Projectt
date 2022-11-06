@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% block title %} Posts {% endblock title %}
+{% block link_styles %} 
+<link rel="stylesheet" href="{{url_for('static', filename='css/blog.css')}}">
+{% endblock link_styles %}
+
+{% block content %}
+
+<div class="blogs mt-5">
+    <div class="blog_title">
+        <h1 class="text-secondary">All Blogs : </h1>
+        <a href="url_for('createPost')" class="btn btn-success" style="display:inline-block;"> Write a Blog</a>
+    </div>
+    {% if allPosts %}
+        {% for post in allPosts %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title}}</h5>
+                <p class="card-text"> {{post.content}}</p>
+
+                <div class="post_details">
+                    <div class="row">
+                        {% if post.author %}
+                        <div class="col-md-4 mt-2">
+                            <small>By Author : <strong>{{post.author}}</strong></small>
+                        </div>
+                        {% else %}
+                        <div class="col-md-4 mt-2">
+                            <small>By Author : <strong>Unknown</strong></small>
+                        </div>
+
+                        {% endif %}
+                        <div class="col-md-2 mt-2">
+                            <a href="{{url_for('deletePost', pk=post.id)}}" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                        <div class="col-md-2 mt-2">
+                            <a href="{{url_for('editPost', pk=post.id)}}" class="btn btn-sm btn-warning">Edit</a>
+                        </div>
+                        <div class="col-md-4 mt-2">
+                            <small>Date Posted : {{ post.date_posted}}</small>
+                        </div>
+                        
+                    </div>
+                       
+                </div>
+                
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>
+            No Blogs Found, Create a New Blog, <a href="{{url_for('createPost')}}">Click Here</a>
+        </p>
+    {% endif %}
+</div>
+
+{% endblock content %}

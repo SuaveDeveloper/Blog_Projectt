@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block title %} Homepage {% endblock title %}
+{% block link_styles %} 
+<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+{% endblock link_styles %}
+
+{% block content %}
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Create New Blog : </h5>
+        <form action="{{url_for('createPost')}}" method="POST">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" name="title" id="title" placeholder="Blog Title">
+            </div>
+            <div class="mb-3">
+                <label for="author" class="form-label">Author</label>
+                <input type="text" class="form-control" id="author" name="author" placeholder="Author name">
+             </div>
+              
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea class="form-control" id="content" rows="3" name="content"></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger">Create Blog</button>
+
+        </form>
+        
+
+    </div>
+
+</div>
+
+{% endblock content %}

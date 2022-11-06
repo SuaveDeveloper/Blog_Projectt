@@ -1,0 +1,17 @@
+p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1{
+    font-family: 'Cookie', cursive;
+}
+
+#logo_title{
+    font-family: 'Rancho', cursive;
+}
+
+a{
+    text-decoration: none;
+    color: crimson;
+    font-weight: bold;
+}

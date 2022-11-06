@@ -1,0 +1,33 @@
+{% block link_styles %} 
+<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+{% endblock link_styles %}
+
+{% block content %}
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Update Blog : {{ content.title }}</h5>
+        <form action="{{url_for('editPost', pk=content.id)}}" method="POST">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" name="title" id="title" placeholder="Blog Title" value="{{ content.title}}">
+            </div>
+            <div class="mb-3">
+                <label for="author" class="form-label">Author</label>
+                <input type="text" class="form-control" id="author" name="author" placeholder="Author name" value="content.author">
+             </div>
+              
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea class="form-control" id="content" rows="3" name="content" value="content_.content"></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger">Update Blog</button>
+
+        </form>
+        
+
+    </div>
+
+</div>
+
+{% endblock content %}
