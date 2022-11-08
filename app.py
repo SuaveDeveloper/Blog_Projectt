@@ -26,7 +26,7 @@ class BlogPost(db.Model):
         return str(self.title)
 
 
-# db.create_all()
+db.create_all()
 
 # making url and function for the render template
 @app.route('/')
