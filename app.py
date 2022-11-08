@@ -88,11 +88,7 @@ def editPost(pk):
 @app.route('/posts')
 def postsViews():
     return render_template('blog/posts.html')
-
-
-
-
-
+ 
 
 if __name__ == '__main__':
     app.run(debug=True)
